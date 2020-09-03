@@ -2,313 +2,101 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #ecf0f1;
+  background: #fff;
 }
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  width: 100%;
+}
+
 .App {
   text-align: center;
   background: #fff;
-  .sidebar {
-    button {
-      width: 86px;
+  .allsongs {
+    .react-autosuggest__container {
+      position: relative;
+      padding: 15px;
+    }
+
+    .react-autosuggest__input {
+      width: 260px;
       height: 40px;
-      background-color: #f9cb11;
-      border: none;
-      border-radius: 6px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      cursor: pointer;
-      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
-      outline: 0;
-      transition: all 0.25s ease;
-
-      &:hover {
-        opacity: 0.8;
-        transition: all 0.25s ease;
-      }
-    }
-    .bottom-nav {
-      position: absolute;
-      bottom: 0;
-      right: 30px;
+      padding: 10px 20px;
+      font-family: Helvetica, sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      border: 1px solid #aaa;
+      border-radius: 21px;
     }
 
-    .menu {
-      background: rgb(43, 47, 77);
-      height: 100vh;
-      width: 80px;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.25s ease;
-      transform: translateX(-50%);
-      position: absolute;
-
-      .upgrade-btn {
-        position: absolute;
-        top: 45%;
-        right: -25px;
-        background: rgb(62, 184, 93);
-        transform: rotate(-90deg);
-        border-bottom-right-radius: 17px;
-        border-bottom-left-radius: 17px;
-        a {
-          padding: 10px 25px;
-          font-size: 18px;
-          i {
-            display: inline;
-            margin-right: 10px;
-          }
-        }
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-        display: block;
-        padding: 20px 0;
-        .fa {
-          font-size: 24px;
-        }
-      }
-
-      ul {
-        padding: 0;
-        margin: 0;
-
-        li {
-          font-size: 16px;
-          transition: all 0.25s ease;
-          animation: fadeInRight 0.25s ease forwards;
-          opacity: 0.8;
-
-          &:hover {
-            opacity: 0.8;
-            transition: all 0.25s ease;
-            background: #000;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-
-    .active {
-      opacity: 1;
-      visibility: visible;
-      transition: all 0.25s ease;
-      transform: translateX(0);
-    }
-
-    @-webkit-keyframes fadeInRight {
-      0% {
-        opacity: 0;
-        left: 20%;
-      }
-      100% {
-        opacity: 1;
-        left: 0;
-      }
+    .react-autosuggest__suggestions-container {
+      display: none;
     }
   }
-  .workspace-nav {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    p {
-      font-size: 20px !important;
-      font-weight: normal !important;
-      border: 1px solid #d6d6d6;
-      i {
-        color: #007bff;
-        padding-left: 15px;
-      }
-    }
-  }
-  .workspaces {
-    h1 {
+  .songlisting {
+    border: 1px solid #d6d6d6;
+    padding: 0 5px;
+    margin: 10px;
+
+    a {
+      display: flex;
       color: #000;
-    }
-    background: #fff;
-    height: 100vh;
-    left: 54%;
-    transition: all 0.25s ease;
-    transform: translateX(-50%);
-    position: absolute;
-    border-right: 1px solid #eee;
-    i {
-      color: #666;
-      font-size: 17px;
-    }
-    p {
-      text-align: left;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .curved {
-      border: none;
-      font-size: 17px;
-    }
-    .accordionAlign {
-      display: table-cell;
-      align-items: baseline;
-      justify-content: space-between;
-      cursor: pointer;
-      i {
-        margin-left: 20px;
-        font-size: 14px;
-        color: #000;
-      }
-      .fa-plus-circle {
-        position: absolute;
-        right: 15px;
-        margin-top: 12px;
-        font-size: 20px;
-      }
-      .accordionButton {
-        background-color: #fff;
-        border: none;
-        color: #000;
-        font-weight: bold;
-        padding: 10px 0px 0px;
-        margin-left: 20px;
-        font-size: 14px;
-        outline: 0;
-      }
-      .arrowAlign {
-        margin-left: 15px;
-        color: #000;
-        font-size: 20px;
-      }
+      text-decoration: none;
+      padding-top: 15px;
     }
   }
 
-  .workspace-info {
-    .workspace-navbar {
-      h5 {
-        font-weight: bold;
-        font-size: 27px;
-        span {
-          color: #9f9f9f;
-          font-size: 14px;
-          display: block;
-          font-weight: normal;
-          padding-top: 10px;
-        }
-      }
-      .nav-icons {
-        a {
-          color: #666;
-          border: 1px solid #d6d6d6;
-          border-radius: 12px;
-          margin-left: 30px;
-          i {
-            color: #007bff;
-          }
-        }
-      }
-      .search {
-        border-radius: 21px;
-      }
-    }
-
-    .column-list {
-      position: absolute;
-      top: 210px;
-      right: 15px;
-      background-color: transparent;
-      color: #000;
-      border: none;
-      font-size: 20px;
-      box-shadow: none;
-    }
-
-    .addRow {
-      button {
-        float: left;
-        width: 100%;
-        background: #fff;
-        border: none;
-        border-right: 10px solid #f2f2f2;
-        border-left: 10px solid #89b8eb;
-        color: #666;
-        border-radius: 0;
-        text-align: left;
-        padding-left: 1rem;
-        box-shadow: none;
-        &:active {
-          background: #fff;
-          box-shadow: none;
-          color: #666;
-        }
-      }
-    }
-
-    .item-values {
-      background: #fff;
-      table {
-        border-collapse: separate;
-        border-spacing: 0 3px;
-        thead {
-          th.title_Things.to.do {
-            color: #007bff;
-            font-weight: normal;
-            width: 60%;
-            padding: 15px 0;
-            text-align: left;
-            font-size: 17px;
-          }
-          th {
-            width: 10%;
-            font-weight: normal;
-            color: #666;
-          }
-        }
-        tbody {
-          td.Things.to.do {
-            text-align: left;
-            padding-left: 1rem;
-            border-left: 10px solid #007bff;
-            i {
-              float: right;
-            }
-          }
-          td {
-            background: #f2f2f2;
-            border-left: 5px solid #fff;
-          }
-        }
-      }
+  .playlists {
+    display: flex;
+    border: 2px solid #d6d6d6;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+}
+.deletesong {
+  border-radius: 21px;
+  margin-left: 15px;
+  max-height: 40px;
+}
+.addsong {
+  border-radius: 21px;
+  margin-left: auto;
+  max-height: 40px;
+}
+.modal-content {
+  .react-autosuggest__suggestions-list{
+    display: none;
+  }
+  .react-autosuggest__container {
+    padding: 15px;
+    border-bottom: 1px solid #666;
+    input {
+      width: 260px;
+      height: 40px;
+      padding: 10px 20px;
+      font-family: Helvetica, sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      border: 1px solid #aaa;
+      border-radius: 21px;
     }
   }
 }
-.popover-body {
-  height: 260px;
-}
-
-button.actionsPopOver.more {
+.modal-footer {
   position: absolute;
-  bottom: 10px;
-  left: 0;
-  padding-left: 25px;
-  text-align: center;
-  border-top: 1px solid #d6d6d6;
-  background: #fff;
-  color: #007bff;
-  border-radius: 0;
-}
-
-button.actionsPopOver {
-  background: transparent;
-  color: #000;
-  border: none;
-  width: 100%;
-  text-align: left;
-  &:hover, &:focus, &:active{
-    background-color: #f2f2f2;
-    color: #000;
+  top: 0;
+  right: 0;
+  button {
     box-shadow: none;
+    background: none;
+    border: none;
   }
   i {
-    color: #0074f4;
-    padding-right: 25px;
+    color: #f40000;
+    font-size: 24px;
   }
+}
+.modal-dialog {
+  max-width: 800px;
 }
